@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML, SVG, CSS Y JS</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+	<style>
+	body{
+		font-family: "Space Grotesk", sans-serif;
+		}
+	</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 600" onClick="alert(´What?!´)">
+  <style>
+    .grid { fill: none; stroke: lightgray; }
+    .axis { stroke: black; }
+    .axis-label { font-size: 12px; text-anchor: middle; dominant-baseline: middle; }
+    .tick text { font-size: 10px; font-family: sans-serif; text-anchor: end; dominant-baseline: middle; fill: currentColor; }
+    .tick line, .domain { stroke: currentColor; fill: none; }
+    .area { fill-opacity: 0.2; transition: all ease 0.4s; }
+	.area:hover	{fill-opacity: .4; transition: all ease 0.4s; }
+    .legend-label { font-size: 10px; }
+    .legend-title { font-size: 12px; font-weight: bold; }
+  </style>
+
+  <rect width="1155" height="600" fill="#fff" />
+  <rect width="805" height="600" fill="none" stroke="#ccc" />
+
+  <!-- Gráfico -->
+  <g transform="translate(400,315)">
+
+    <!-- Círculos de la grilla (10 a 90) -->
+    <g>
+      <circle class="grid" r="257" />
+      <circle class="grid" r="228" />
+      <circle class="grid" r="200" />
+      <circle class="grid" r="171" />
+      <circle class="grid" r="143" />
+      <circle class="grid" r="114" />
+      <circle class="grid" r="86" />
+      <circle class="grid" r="57" />
+      <circle class="grid" r="29" />
+    </g>
+
+    <!-- Ejes radiales y sus etiquetas -->
+    <g>
+      <line class="axis" x2="0" y2="-285" />
+      <text class="axis-label" x="0" y="-295">Staff with PhD</text>
+
+      <line class="axis" x2="271.05" y2="-88.07" />
+      <text class="axis-label" x="280.56" y="-91.16">Faculty Student</text>
+
+      <line class="axis" x2="167.52" y2="230.57" />
+      <text class="axis-label" x="173.4" y="238.66">International Research Network</text>
+
+      <line class="axis" x2="-167.52" y2="230.57" />
+      <text class="axis-label" x="-173.4" y="238.66">Papers Per Faculty</text>
+
+      <line class="axis" x2="-271.05" y2="-88.07" />
+      <text class="axis-label" x="-280.56" y="-91.16">Citations per Paper</text>
+    </g>
+
+    <!-- Eje Y (escala 0–90) -->
+    <g transform="translate(0,-285)">
+      <path class="domain" d="M-6,0.5H0.5V285.5H-6" />
+      <g class="tick" transform="translate(0,28.5)"><line x2="-6" /><text x="-9">90</text></g>
+      <g class="tick" transform="translate(0,56.5)"><line x2="-6" /><text x="-9">80</text></g>
+      <g class="tick" transform="translate(0,85.5)"><line x2="-6" /><text x="-9">70</text></g>
+      <g class="tick" transform="translate(0,113.5)"><line x2="-6" /><text x="-9">60</text></g>
+      <g class="tick" transform="translate(0,142.5)"><line x2="-6" /><text x="-9">50</text></g>
+      <g class="tick" transform="translate(0,171.5)"><line x2="-6" /><text x="-9">40</text></g>
+      <g class="tick" transform="translate(0,199.5)"><line x2="-6" /><text x="-9">30</text></g>
+      <g class="tick" transform="translate(0,228.5)"><line x2="-6" /><text x="-9">20</text></g>
+      <g class="tick" transform="translate(0,256.5)"><line x2="-6" /><text x="-9">10</text></g>
+      <g class="tick" transform="translate(0,285.5)"><line x2="-6" /><text x="-9">0</text></g>
+    </g>
+
+    <!-- Series -->
+    <!-- PUC -->
+    <g id="puc" fill="#9e0142" stroke="#9e0142">
+      <path class="area" d="M0,-281L194.97,-63.35L166.93,229.76L-163.4,224.91L-210.18,-68.29Z" />
+      <g stroke="none">
+        <circle cx="0" cy="-281" r="3.5" />
+        <circle cx="194.97" cy="-63.35" r="3.5" />
+        <circle cx="166.93" cy="229.76" r="3.5" />
+        <circle cx="-163.4" cy="224.91" r="3.5" />
+        <circle cx="-210.18" cy="-68.29" r="3.5" />
+      </g>
+    </g>
+
+    <!-- U. de Chile -->
+    <g id="uchile" fill="#fdbe70" stroke="#fdbe70">
+      <path class="area" d="M0,-205L62.77,-20.4L166.93,229.76L-166.93,229.76L-208.28,-67.67Z" />
+      <g stroke="none">
+        <circle cx="0" cy="-205" r="3.5" />
+        <circle cx="62.77" cy="-20.4" r="3.5" />
+        <circle cx="166.93" cy="229.76" r="3.5" />
+        <circle cx="-166.93" cy="229.76" r="3.5" />
+        <circle cx="-208.28" cy="-67.67" r="3.5" />
+      </g>
+    </g>
+
+    <!-- U. de Concepción -->
+    <g id="udec" fill="#9ef95d" stroke="#9ef95d">
+      <path class="area" d="M0,-182L101.76,-33.06L165.76,228.14L-149.89,206.3L-238.72,-77.56Z" />
+      <g stroke="none">
+        <circle cx="0" cy="-182" r="3.5" />
+        <circle cx="101.76" cy="-33.06" r="3.5" />
+        <circle cx="165.76" cy="228.14" r="3.5" />
+        <circle cx="-149.89" cy="206.3" r="3.5" />
+        <circle cx="-238.72" cy="-77.56" r="3.5" />
+      </g>
+    </g>
+
+    <!-- USACH -->
+    <g id="usach" fill="#5e4fa2" stroke="#5e4fa2">
+      <path class="area" d="M0,-84L80.84,-26.27L163.99,225.72L-135.78,186.88L-165.48,-53.77Z" />
+      <g stroke="none">
+        <circle cx="0" cy="-84" r="3.5" />
+        <circle cx="80.84" cy="-26.27" r="3.5" />
+        <circle cx="163.99" cy="225.72" r="3.5" />
+        <circle cx="-135.78" cy="186.88" r="3.5" />
+        <circle cx="-165.48" cy="-53.77" r="3.5" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Leyenda -->
+  <g transform="translate(810,30)">
+    <text class="legend-title" dy="0.35em">Institution Name</text>
+    <g transform="translate(0,16)">
+      <rect width="15" height="15" fill="#9e0142" />
+      <text class="legend-label" x="20" y="12.5">Pontificia Universidad Católica de Chile</text>
+
+      <rect y="21" width="15" height="15" fill="#fdbe70" />
+      <text class="legend-label" x="20" y="33.5">Universidad de Chile</text>
+
+      <rect y="42" width="15" height="15" fill="#9ef95d" />
+      <text class="legend-label" x="20" y="54.5">Universidad de Concepción</text>
+
+      <rect y="63" width="15" height="15" fill="#5e4fa2" />
+      <text class="legend-label" x="20" y="75.5">Universidad de Santiago de Chile</text>
+    </g>
+  </g>
+</svg>
+</body>
+</html>
